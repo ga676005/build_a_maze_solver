@@ -52,7 +52,7 @@ class Maze:
         if self._win is None:
             return
         self._win.redraw()
-        time.sleep(0.001)
+        time.sleep(0.05)
 
     def _break_entrance_and_exit(self):
         entrance_cell = self._cells[0][0]
@@ -148,6 +148,7 @@ class Maze:
                 if result == True:
                     return True
                 else:
+                    self._animate()
                     current_cell.draw_move(top_cell, undo=True)
 
         # go bottom
@@ -163,6 +164,7 @@ class Maze:
                 if result == True:
                     return True
                 else:
+                    self._animate()
                     current_cell.draw_move(bottom_cell, undo=True)
         # go left
         if (j - 1) >= 0:
@@ -177,6 +179,7 @@ class Maze:
                 if result == True:
                     return True
                 else:
+                    self._animate()
                     current_cell.draw_move(left_cell, undo=True)
 
         # go right
@@ -192,6 +195,7 @@ class Maze:
                 if result == True:
                     return True
                 else:
+                    self._animate()
                     current_cell.draw_move(right_cell, undo=True)
 
         return False
