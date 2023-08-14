@@ -22,6 +22,13 @@ class Tests(unittest.TestCase):
 
         self.assertEqual(maze_total_cells, num_cols * num_rows)
 
+    def test_maze_cells_are_not_visited_initially(self):
+        m1 = Maze(0, 0, 5, 5, 10, 10)
+
+        for row in m1._cells:
+            for cell in row:
+                self.assertEqual(cell._visited, False)
+
 
 if __name__ == "__main__":
     unittest.main()
